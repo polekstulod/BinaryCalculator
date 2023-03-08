@@ -1,13 +1,11 @@
 #include <iostream>
 #include <string>
-#include <sstream>
 
 int main()
 {
     std::string input;
-    int checker;
-    do
-    {
+
+    while (true) {
         std::cout << "===========================================================\n";
         std::cout << "=============== Welome to Binary Calculator ===============\n";
         std::cout << "===========================================================\n\n";
@@ -17,24 +15,20 @@ int main()
         std::cout << "3. Exit\n\n";
 
         std::cout << "Enter a Number Option: ";
-        std::getline(std::cin, input);
-
-        std::stringstream stream(input);
-        if (stream >> checker) {
-            if (checker == 0)
-                std::cout << "Exited Successfully\n";
-            else if (checker == 1)
-                std::cout << "1. Decimal to Binary\n";
-            else if (checker == 2)
-                std::cout << "2. Binary to Decimal\n";
+        getline(std::cin, input);
+        
+        if (input[0] == '1') {
+            std::cout << "Decimal to Binary Conversion\n\n";
+        }
+        else if (input[0] == '2') {
+            std::cout << "Binary to Decimal Conversion\n\n";
+        }
+        else if (input[0] == '3') {
+            return 0;
         }
         else {
-            std::cout << "Please Enter a valid number\n";
-            checker = 1;
+            std::cout << "Invalid input, Please try again!\n\n";
         }
-
-
-    } while (checker > 0);
-    
+    }
 }
 
